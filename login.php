@@ -12,18 +12,21 @@ CSC155201F -->
 // php library loading first
 require("library/phpfunctions.php");
 
-
+session_start();
 
 // local php functions go here 
+
+/*    KEN MOVED THIS FUNCTION TO phpfunctionsphp IN 14-MYSITE
 function getPost( $name )  #Ken's version 2 from Slide 7
 {
-# check to see if it been used, if it has, return it
+COMMENT:  check to see if it been used, if it has, return it
     if ( isset($_POST[$name]) ) 
     {
         return htmlspecialchars($_POST[$name]);
     }
     return "";
 }
+*/
 
 
 // local php startup code goes here 
@@ -36,6 +39,7 @@ if (isset($_POST['submit']))
         if ($_POST['username155'] == 'alex' &&
             $_POST['password155'] == '1234') 
         {
+            $_SESSION['user'] = $_POST['username155'];
             header("Location: welcome.php");
         }
         else
