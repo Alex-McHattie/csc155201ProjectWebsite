@@ -6,7 +6,7 @@ followed all academic integrity guidelines for this work.
 JMCHATTIE1
 CSC155201F -->
 
-<title>Okra Purchase Page</title>
+<title>The Okra Page</title>
 <?php 
 // php library loading first
 require("library/commonHeaderFn.php");  // ALEX MOVED THIS TO HERE
@@ -15,7 +15,6 @@ secure_test();
 
 // local php functions go here 
 // local php startup code goes here 
-// require("library/commonHeaderFn.php"); COMMENT: ALEX MOVED THIS UP
 
 if (!isset($_SESSION['okra']))
     $_SESSION['okra']=0;
@@ -30,12 +29,12 @@ if (isset($_POST['submit']))
     $_SESSION['okra']=0;
 }
 
-
 ?>
 
 </head>
 <body>
-<p> Welcome to the Okra Purchase Page!!! </p>
+<h3> You've arrived at the Okra Procurement Page!!! </h3>
+<p> Please click on the buttons below to select the number of okra pods you would like: </p>
 <form method='POST'>
 <input type='submit' name='submit' value='Buy One'>
 <input type='submit' name='submit' value='Buy Ten'>
@@ -43,7 +42,7 @@ if (isset($_POST['submit']))
 </form>
 
 <p> You have selected <?php echo $_SESSION['okra'];?> okra pods for your shopping cart </p>
-<p> Your okra pods: <?php echo print_creatures('O', $_SESSION['okra']);?></p>
+<p> Your okra pods: <?php echo print_creatures("<img src='library/images/okra.jpg' alt='okra' width='50'>", $_SESSION['okra']);?></p>
 
 
 <?php header2() ?>
