@@ -11,23 +11,45 @@ CSC155201F -->
 
 <?php 
 // php library loading first
-// require("library/commonHeaderFn.php")   ALEX VESTIGE. MISS SEMI C REP BELOW.
-require("library/commonHeaderFn.php");    //  ALEX MOVED THIS UP FROM BELOW
+require("library/commonHeaderFn.php");    
 require("library/phpfunctions.php");
 // local php functions go here 
 // local php startup code goes here 
 secure_test();   // from 14-mysite
 
-// header:("Location: library/commonHeaderFn.php");
-// require("library/commonHeaderFn.php");  COMMENT: THESE NEED TO BE TAKEN OUT
+
+
+// secure_startup();  // called on all 'secure' pages
+
+if (isset($_POST['submit']))
+{
+    setcookie("prefName",$_POST['prefName'], time() + (60 * 3)); // 86400 = 1 day ALEX chose a few minutess vs 30 days
+    $prefNamemsg = "cookie set";
+}
+else
+{
+    $prefNamemsg = "cookie not set";
+}
 
 ?>
 </head>
 <body>
 <?php header2() ?>
-<h1> Welcome to Alex's Lab14 website!!! </h1>
+
+<form method='POST'>
+<table border='1'> 
+<!-- <table> -->
+<tr>
+<td colspan='3' >Enter your preferred name here: </td><td><input type=text name='prefName'></td>
+</tr>
+<tr>
+<td colspan='2'><input type='submit' name='submit' value='Set Attributes'</td>
+</td><td><?php echo $prefNamemsg;?></td>
+</tr>
+</table>
+</form>
+
 <?php footer() ?>
 
-<?php echo $_SESSION['user'];?> 
 </body>
 </html>
