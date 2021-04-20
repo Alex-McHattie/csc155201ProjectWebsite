@@ -6,7 +6,7 @@ followed all academic integrity guidelines for this work.
 JMCHATTIE1
 CSC155201F -->
 
-<title>French Fries Purchase Page</title>
+<title>The French Fries Page</title>
 <?php 
 // php library loading first
 require("library/commonHeaderFn.php");  // ALEX MOVED THIS TO HERE
@@ -15,7 +15,6 @@ secure_test();
 
 // local php functions go here 
 // local php startup code goes here 
-// require("library/commonHeaderFn.php"); COMMENT: ALEX MOVED THIS UP
 
 if (!isset($_SESSION['frenchfries']))
     $_SESSION['frenchfries']=0;
@@ -24,26 +23,35 @@ if (isset($_POST['submit']))
 {  // did the page load itself?
     if ($_POST['submit'] == 'Buy One')
     $_SESSION['frenchfries']++;
-    else if ($_POST['submit'] == 'Buy Ten')
-    $_SESSION['frenchfries']+=10;
+    else if ($_POST['submit'] == 'Buy Three')
+    $_SESSION['frenchfries']+=3;
     else if ($_POST['submit'] == 'Drop All')
     $_SESSION['frenchfries']=0;
+// ALEX FOUND THIS WORKED ON GODZILLA, SO HE PLUGS IT IN HERE TOO
+    else if ($_POST['submit'] == 'Remove One')
+    {
+    if ($_SESSION['frenchfries'] > 0)
+    {
+        $_SESSION['frenchfries']--;
+    }
+    }  
 }
-
 
 ?>
 
 </head>
 <body>
-<p> Welcome to the French Fries Purchase Page!!! </p>
+<h3> You're now on the French Fries Procurement Page!!! </h3>
+<p> Please click on the buttons below to select the number of French fries you would like: </p>
 <form method='POST'>
 <input type='submit' name='submit' value='Buy One'>
-<input type='submit' name='submit' value='Buy Ten'>
+<input type='submit' name='submit' value='Buy Three'>
+<input type='submit' name='submit' value='Remove One'>
 <input type='submit' name='submit' value='Drop All'>
 </form>
 
-<p> You have selected <?php echo $_SESSION['frenchfries'];?> frenchfries for your shopping cart </p>
-<p> Your french fries: <?php echo print_creatures('F', $_SESSION['frenchfries']);?></p>
+<p> You have selected <?php echo $_SESSION['frenchfries'];?> French fries for your shopping cart </p>
+<p> Your French fries: <?php echo print_creatures("<img src='library/images/frenchfries.jpg' alt='French fry' width='20'>", $_SESSION['frenchfries']);?></p>
 
 
 <?php header2() ?>
