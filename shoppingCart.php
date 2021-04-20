@@ -15,25 +15,27 @@ secure_test();
 
 // local php functions go here 
 // local php startup code goes here 
-// require("library/commonHeaderFn.php"); COMMENT: ALEX MOVED THIS UP
 ?>
 </head>
 <body>
+<h3>You're now on the Checkout Page</h3>
+
 <?php header2() ?>
 
-<h3>Check Out</h3>
+<h2><em>Check out what's in your shopping cart!!!:</em></h2>
 
-<p>  <?php echo print_creatures('O', $_SESSION['okra']);?> </p>
-<p>  <?php echo print_creatures('G', $_SESSION['godzillas']);?> </p>
-<p>  <?php echo print_creatures('E', $_SESSION['elvises']);?> </p>
-<p>  <?php echo print_creatures('F', $_SESSION['frenchfries']);?> </p>
+<p>  <?php echo print_creatures("<img src='library/images/godzillas.jpg' alt='Godzilla' width='50'>", $_SESSION['godzillas']);?> </p>
+<p>  <?php echo print_creatures("<img src='library/images/frenchfries.jpg' alt='French fry' width='20'>", $_SESSION['frenchfries']);?> </p>
+<p>  <?php echo print_creatures("<img src='library/images/okra.jpg' alt='okra' width='50'>", $_SESSION['okra']);?> </p>
+<p>  <?php echo print_creatures("<img src='library/images/elvises.jpg' alt='Elvis' width='50'>", $_SESSION['elvises']);?> </p>
+<br>
 
-<h3>Your Purchase:</h3>
+<h2><em>--and here are the totals of your items:</em></h2>
 
+<p>  <?php echo ( $_SESSION['godzillas']);?> Godzilla costumes</p>
+<p>  <?php echo ( $_SESSION['frenchfries']);?> French fries</p>
 <p>  <?php echo ( $_SESSION['okra']);?> okra pods</p>
-<p>  <?php echo ( $_SESSION['godzillas']);?> godzilla costumes</p>
 <p>  <?php echo ( $_SESSION['elvises']);?> Elvis outfits</p>
-<p>  <?php echo ( $_SESSION['frenchfries']);?> french fries</p>
 
 <?php footer() ?>
 </body>
