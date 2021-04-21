@@ -1,7 +1,7 @@
-<!--  I honor Parkland's core values by affirming that I have 
-followed all academic integrity guidelines for this work.
-JMCHATTIE1
-CSC155201F -->
+<!--  I honor Parkland's core values by affirming that I have
+          followed all academic integrity guidelines for this work.
+          jmchattie1
+          csc155201f -->
 
 <?php
 
@@ -12,23 +12,15 @@ function footer()
     echo " &nbsp; | &nbsp; ";
     echo "<a href='welcome.php'>Home</a>";
     echo " &nbsp; | &nbsp; ";
-    foreach (array("godzillas","okra","elvises","frenchfries" ) as $creature)
+    foreach (array("godzillas","frenchfries","okra","elvises") as $creature)
     {
         echo "<a href='" . $creature . ".php'>" . $creature . "</a>";
+        echo "<img src= 'http://www.csit.parkland.edu/~jmchattie1/csc155201F/lab15_phpSite3/Lab12_phpSite/library/images/" . $creature . ".jpg'>";     
         echo " &nbsp; | &nbsp; ";
     }
     echo "<a href='shoppingCart.php'>Checkout</a>";
-//    echo " &nbsp; | &nbsp; ";
-
-/* VESTAGES FROM 12-MYSITE AND LAB 06
-    echo "<a href='http://www.csit.parkland.edu/~kurban/csc155201F'>Ken's Class Code Page</a>";
-    echo " &nbsp; | &nbsp; ";
-
-    echo "<a href='http://www.csit.parkland.edu/~kurban'>Ken's Code</a>";
-*/
     echo "</strong></center>";
 }
-
 
 // should be called by every 'secure' page in the website
 function secure_test()
@@ -41,7 +33,7 @@ function secure_test()
     }
 }
 
-//  this function moved from login 25:00
+//  this function moved from login of an earlier site version
 function getPost( $name )  #Ken's version 2 from Slide 7
 {  
 # check to see if it been used, if it has, return it
@@ -52,17 +44,6 @@ function getPost( $name )  #Ken's version 2 from Slide 7
     return "";
 }
 
-//  ALEX NOTE THIS FUNCTION BLOCK SHOULD BE REMOVED
-/*
-function print_goblin($times)
-{
-    for ($i=0;$i<$times;$i++)
-    {
-        echo "G";
-    }
-}
-*/
-
 function print_creatures($letter, $times)
 {
     for ($i=0;$i<$times;$i++)
@@ -70,6 +51,5 @@ function print_creatures($letter, $times)
         echo $letter;
     }
 }
-
 
 ?>
