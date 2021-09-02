@@ -13,6 +13,8 @@ CSC155201F -->
 require("library/phpfunctions.php");
 
 session_start();
+$conn = getConn();
+
 
 // local php functions go here 
 
@@ -36,10 +38,11 @@ if (isset($_POST['submit']))
     if ($_POST['submit'] == 'Log In')
     {
         // log in attempt
-        if ($_POST['username155'] == 'alex' &&
-            $_POST['password155'] == '1234') 
+        $row = lookupUsername($conn, getPost('username155')); 
+        if ($row != 0 && password_verify($_POST['password155'], $row['encrypted_password'])) 
         {
-            $_SESSION['user'] = $_POST['username155'];
+            $_SESSION['user'] = getPost('username155');
+            $_SESSION['group'] = $row['usergroup'];
             header("Location: welcome.php");
         }
         else
@@ -54,7 +57,8 @@ if (isset($_POST['submit']))
     }
     else if ($_POST['submit'] == 'Create New Account')
     {
-            echo "OK: I created username: 'alex' and password:'1234' (-ha! -not really...)";
+            // echo "OK: I created username: 'alex' and password:'1234' (-ha! -not really...)";
+            header("Location: insertUser.php");
     }
 
 }
@@ -80,7 +84,8 @@ Password:
 <input type='submit' name='submit' value='Forgot your password?'>
 </form>
 
-<?php footer() ?>
-
+<p><a href='insertUser.php'>Create a new account</a></p>
+<!-- <?php footer() ?> -->
+<!-- this php footer may cause problems with out the ; after() -->
 </body>
 </html>
