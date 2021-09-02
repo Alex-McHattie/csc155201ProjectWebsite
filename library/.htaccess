@@ -1,0 +1,15 @@
+Order Allow,Deny
+Deny from all
+
+<FilesMatch ".(jpg|gif|png)$">
+Order Deny,Allow
+    Allow from all
+</FilesMatch>
+
+
+# Deny from all
+# ALEX NOTE this one kept the images from showing up on the webpages
+
+# ALEX found the Order and FilesMatch code on 
+# https://www.inmotionhosting.com/support/edu/website-design/access-specific-filetype/
+# it was a link on the link in Ken's Hour 15 slide 3
