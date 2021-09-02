@@ -50,6 +50,6 @@ else
 </form>
 
 <?php footer() ?>
-
+<!-- note Ken's ommission of ; after footer() -->
 </body>
 </html>
